@@ -1,5 +1,5 @@
 {
-  "title": "Welcome to Usercomm!",
+  "title": "Welcome to Oathkeeper!",
   "services": {
     "filter": {
       "list": [],
@@ -11,195 +11,12 @@
   },
   "rows": [
     {
-      "title": "USERCOMM",
+      "title": "DATABASE",
       "height": "250px",
       "editable": true,
       "collapse": false,
       "collapsable": true,
       "panels": [
-        {
-          "span": 6,
-          "editable": true,
-          "type": "graphite",
-          "loadingEditor": false,
-          "datasource": null,
-          "renderer": "flot",
-          "x-axis": true,
-          "y-axis": true,
-          "scale": 1,
-          "y_formats": [
-            "short",
-            "short"
-          ],
-          "grid": {
-            "max": null,
-            "min": 0,
-            "threshold1": null,
-            "threshold2": null,
-            "threshold1Color": "rgba(216, 200, 27, 0.27)",
-            "threshold2Color": "rgba(234, 112, 112, 0.22)"
-          },
-          "annotate": {
-            "enable": false
-          },
-          "resolution": 100,
-          "lines": true,
-          "fill": 0,
-          "linewidth": 1,
-          "points": false,
-          "pointradius": 5,
-          "bars": false,
-          "stack": false,
-          "legend": {
-            "show": true,
-            "values": true,
-            "min": false,
-            "max": false,
-            "current": true,
-            "total": false,
-            "avg": true
-          },
-          "percentage": false,
-          "zerofill": true,
-          "nullPointMode": "connected",
-          "steppedLine": false,
-          "tooltip": {
-            "value_type": "cumulative",
-            "query_as_alias": true
-          },
-          "targets": [
-            {
-              "target": "stats_counts.usercomm_1_ws.web.2xx"
-            }
-          ],
-          "aliasColors": {},
-          "aliasYAxis": {},
-          "title": "Web 200s",
-          "hide": false
-        },
-        {
-          "span": 3,
-          "editable": true,
-          "type": "graphite",
-          "x-axis": true,
-          "y-axis": true,
-          "scale": 1,
-          "y_formats": [
-            "short",
-            "short"
-          ],
-          "grid": {
-            "max": null,
-            "min": 0,
-            "threshold1": null,
-            "threshold2": null,
-            "threshold1Color": "rgba(216, 200, 27, 0.27)",
-            "threshold2Color": "rgba(234, 112, 112, 0.22)"
-          },
-          "resolution": 100,
-          "lines": true,
-          "fill": 1,
-          "linewidth": 2,
-          "points": false,
-          "pointradius": 5,
-          "bars": false,
-          "stack": false,
-          "spyable": true,
-          "options": false,
-          "legend": {
-            "show": true,
-            "values": false,
-            "min": false,
-            "max": false,
-            "current": false,
-            "total": false,
-            "avg": false
-          },
-          "interactive": true,
-          "legend_counts": true,
-          "timezone": "browser",
-          "percentage": false,
-          "zerofill": true,
-          "nullPointMode": "connected",
-          "steppedLine": false,
-          "tooltip": {
-            "value_type": "cumulative",
-            "query_as_alias": true
-          },
-          "targets": [
-            {
-              "target": "*.numStats"
-            }
-          ],
-          "aliasColors": {},
-          "aliasYAxis": {},
-          "title": "Graphite test",
-          "datasource": null,
-          "renderer": "flot",
-          "annotate": {
-            "enable": false
-          },
-          "hide": true
-        },
-        {
-          "span": 6,
-          "editable": true,
-          "type": "graphite",
-          "loadingEditor": false,
-          "datasource": null,
-          "renderer": "flot",
-          "x-axis": true,
-          "y-axis": true,
-          "scale": 1,
-          "y_formats": [
-            "short",
-            "short"
-          ],
-          "grid": {
-            "max": null,
-            "min": 0,
-            "threshold1": null,
-            "threshold2": null,
-            "threshold1Color": "rgba(216, 200, 27, 0.27)",
-            "threshold2Color": "rgba(234, 112, 112, 0.22)"
-          },
-          "annotate": {
-            "enable": false
-          },
-          "resolution": 100,
-          "lines": true,
-          "fill": 0,
-          "linewidth": 1,
-          "points": false,
-          "pointradius": 5,
-          "bars": false,
-          "stack": false,
-          "legend": {
-            "show": true,
-            "values": true,
-            "min": false,
-            "max": true,
-            "current": true,
-            "total": false,
-            "avg": false
-          },
-          "percentage": false,
-          "zerofill": true,
-          "nullPointMode": "connected",
-          "steppedLine": false,
-          "tooltip": {
-            "value_type": "cumulative",
-            "query_as_alias": true
-          },
-          "targets": [
-            {
-              "target": "stats_counts.usercomm_1_ws.web.5xx"
-            }
-          ],
-          "aliasColors": {},
-          "aliasYAxis": {},
-          "title": "Web 500s"
-        },
         {
           "span": 12,
           "editable": true,
@@ -212,7 +29,7 @@
           "scale": 1,
           "y_formats": [
             "short",
-            "short"
+            "ms"
           ],
           "grid": {
             "max": null,
@@ -252,23 +69,155 @@
           },
           "targets": [
             {
-              "target": "sumSeries(stats_counts.usercomm_1_ws.web.5xx)"
+              "target": "stats.timers.database.select.count"
             },
             {
-              "target": "sumSeries(stats_counts.usercomm_1_ws.web.2xx)"
+              "target": "stats.timers.database.select.upper_95"
             }
           ],
           "aliasColors": {
-            "sumSeries(stats_counts.*.web.5xx)": "#6ED0E0"
+            "stats.timers.database.select.count": "#EAB839",
+            "stats.timers.database.select.upper_95": "#BA43A9"
           },
           "aliasYAxis": {
-            "sumSeries(stats_counts.*.web.5xx)": 2,
-            "sumSeries(stats_counts.identity_1_ws.web.5xx)": 2,
-            "sumSeries(stats_counts.usercomm_1_ws.web.5xx)": 2
+            "stats.timers.database.select.upper_95": 2
           },
-          "title": "Web *",
-          "leftYAxisLabel": "200s ",
-          "rightYAxisLabel": "500s"
+          "title": "SELECT count and timer"
+        },
+        {
+          "span": 12,
+          "editable": true,
+          "type": "graphite",
+          "loadingEditor": false,
+          "datasource": null,
+          "renderer": "flot",
+          "x-axis": true,
+          "y-axis": true,
+          "scale": 1,
+          "y_formats": [
+            "none",
+            "ms"
+          ],
+          "grid": {
+            "max": null,
+            "min": 0,
+            "threshold1": null,
+            "threshold2": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "annotate": {
+            "enable": false
+          },
+          "resolution": 100,
+          "lines": true,
+          "fill": 0,
+          "linewidth": 1,
+          "points": false,
+          "pointradius": 5,
+          "bars": false,
+          "stack": false,
+          "legend": {
+            "show": true,
+            "values": true,
+            "min": true,
+            "max": true,
+            "current": true,
+            "total": false,
+            "avg": true
+          },
+          "percentage": false,
+          "zerofill": true,
+          "nullPointMode": "connected",
+          "steppedLine": false,
+          "tooltip": {
+            "value_type": "cumulative",
+            "query_as_alias": true
+          },
+          "targets": [
+            {
+              "target": "stats.timers.database.update.count"
+            },
+            {
+              "target": "stats.timers.database.update.upper_95"
+            }
+          ],
+          "aliasColors": {
+            "stats.timers.database.update.upper_95": "#F9E2D2",
+            "stats.timers.database.update.count": "#BF1B00"
+          },
+          "aliasYAxis": {
+            "stats.timers.database.update.upper_95": 2
+          },
+          "title": "UPDATE count and timer"
+        },
+        {
+          "span": 12,
+          "editable": true,
+          "type": "graphite",
+          "loadingEditor": false,
+          "datasource": null,
+          "renderer": "flot",
+          "x-axis": true,
+          "y-axis": true,
+          "scale": 1,
+          "y_formats": [
+            "ms",
+            "ms"
+          ],
+          "grid": {
+            "max": null,
+            "min": 0,
+            "threshold1": null,
+            "threshold2": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "annotate": {
+            "enable": false
+          },
+          "resolution": 100,
+          "lines": true,
+          "fill": 0,
+          "linewidth": 1,
+          "points": false,
+          "pointradius": 5,
+          "bars": false,
+          "stack": false,
+          "legend": {
+            "show": true,
+            "values": true,
+            "min": false,
+            "max": false,
+            "current": true,
+            "total": false,
+            "avg": false
+          },
+          "percentage": false,
+          "zerofill": true,
+          "nullPointMode": "connected",
+          "steppedLine": false,
+          "tooltip": {
+            "value_type": "cumulative",
+            "query_as_alias": true
+          },
+          "targets": [
+            {
+              "target": "stats.timers.database.select.upper_25"
+            },
+            {
+              "target": "stats.timers.database.update.upper_25"
+            }
+          ],
+          "aliasColors": {
+            "stats.timers.database.update.upper_25": "#E5A8E2",
+            "stats.timers.database.select.upper_25": "#967302"
+          },
+          "aliasYAxis": {
+            "stats.timers.database.update.median": 2,
+            "stats.timers.database.update.upper_25": 2
+          },
+          "title": "Database-25th percentile"
         }
       ],
       "notice": false
@@ -277,7 +226,7 @@
   "editable": true,
   "failover": false,
   "panel_hints": true,
-  "style": "light",
+  "style": "dark",
   "pulldowns": [
     {
       "type": "filtering",
